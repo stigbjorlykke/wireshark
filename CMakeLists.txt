@@ -1408,6 +1408,9 @@ if(BUILD_wireshark OR BUILD_stratoshark)
 			# QT_FIND_PACKAGE_OPTIONS should be passed to find_package,
 			# e.g. find_package(Qt5Core ${QT_FIND_PACKAGE_OPTIONS})
 			list(APPEND QT5_FIND_PACKAGE_OPTIONS PATHS /usr/local/opt/qt5)
+		elseif(APPLE AND EXISTS /opt/homebrew/opt/qt@5)
+			# Homebrew installs qt@5 in /opt/homebrew/opt/qt@5.
+			list(APPEND QT5_FIND_PACKAGE_OPTIONS PATHS /opt/homebrew/opt/qt@5)
 		endif()
 
 		set(QT5_PACKAGELIST
